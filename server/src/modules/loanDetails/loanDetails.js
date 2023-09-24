@@ -22,8 +22,7 @@ const loanSchema = new mongoose.Schema({
     },
     date:{
         type: Date, default: function () { return moment().format('YYYY-MM-DD'); 
-   }
-   }
+   }}
 });
 
 // create model

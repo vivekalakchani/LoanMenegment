@@ -25,6 +25,10 @@ const dailyDebitSchema = new mongoose.Schema({
           remainingBalance: Number,
         }
       ],
+      dailyDebitid: { type: String },
+      Loanid: { type: String },
+      LoanIdMongo:{type :mongoose.Schema.Types.ObjectId,
+    ref:'loandetails'}
 });
 
 // create model

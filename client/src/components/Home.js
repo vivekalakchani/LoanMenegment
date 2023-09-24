@@ -61,11 +61,11 @@ export default function Home() {
              
       <tbody>
         <tr>
-          <td>{el._id}</td>
+          <td>{el.Loanid}</td>
           <td>{el.fname}</td>
           <td>$ {el.amount}</td>
           <td>{el.duration}</td>
-          <td>{el.date}</td>
+          <td>{new Date(el.date).toLocaleDateString()}</td>
           <td><Button variant="dark">
                         <NavLink
                           to={`/details/${el._id}`}

@@ -5,6 +5,8 @@ const app = express();
 
 const BodyParser = require("body-parser");
 
+const counter = require("./counter");
+
 const loanRoutes = require("./modules/loanDetails/routes");
 
 const dailyRoutes = require("./modules/dailyDebitDetails/routes");

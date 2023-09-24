@@ -36,7 +36,8 @@ const Details = () => {
         <Accordion.Header>Customer Details</Accordion.Header>
         <Accordion.Body>
         <ListGroup>
-      <ListGroup.Item>Loan ID: {id}</ListGroup.Item>
+      <ListGroup.Item>Loan ID: {customer.Loanid}</ListGroup.Item>
+      <ListGroup.Item>DailyDebit ID: {customer.dailyDebitid}</ListGroup.Item>
       <ListGroup.Item>Name : {customer.fname}</ListGroup.Item>
       <ListGroup.Item>Loan Amount: ${customer.amount}.00</ListGroup.Item>
       <ListGroup.Item>Loan Duration: {customer.duration} days</ListGroup.Item>

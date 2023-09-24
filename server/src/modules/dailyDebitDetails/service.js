@@ -1,4 +1,6 @@
 const dailyDebit = require('./dailyDebit');
+const Counter = require("./../../counter");
+const loan = require("../loanDetails/loanDetails")
 
 const adddailyDebitData= async (fname, amount,duration) => {
   const date = new Date();
@@ -16,19 +18,21 @@ const adddailyDebitData= async (fname, amount,duration) => {
       dueDate,
       installmentAmount,
       remainingBalance: amount - i * installmentAmount
-      //isPaid: false, // Initially, set isPaid to false for each installment
     };
 
     repaymentSchedule.push(installment);
   }
-
-
-  new dailyDebit({
+  let trSeq = await Counter.getNextSequence();
+  const loandetails= await loan.findOne({fname:fname ,amount:amount,duration:duration});
+ const debit =new dailyDebit({
     fname: fname,
     amount: amount,
     duration: duration,
     date: date,
-    repaymentSchedule: repaymentSchedule // Include the generated repayment schedule
+    repaymentSchedule: repaymentSchedule ,
+    dailyDebitid:`DailyDebit_${trSeq}`,
+    Loanid:`Loan_${trSeq}`,
+    LoanIdMongo:loandetails._id
   }).save();
 
 }
